@@ -115,7 +115,8 @@ function displayLowInventory() {
             }
 		}
 
-	  	console.log("---------------------------------------------------------------------\n");
+		  console.log("---------------------------------------------------------------------\n")
+		  process.exit()
 	})
 }
 function addInventory() {
