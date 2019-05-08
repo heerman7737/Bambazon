@@ -141,7 +141,7 @@ function addInventory() {
 		db.query(queryStr, {item_id: item}, function(err, data) {
 			if (err) throw err;
 			if (data.length === 0) {
-				console.log('ERROR: Invalid Item ID. Please select a valid Item ID.');
+				console.log('Invalid Item ID');
 				addInventory();
 			} else {
 				let productData = data[0];
@@ -151,7 +151,7 @@ function addInventory() {
 				db.query(updateQueryStr, function(err, data) {
 					if (err) throw err;
 
-					console.log('Stock count for Item ID ' + item + ' has been updated to ' + (productData.stock_quantity + addQuantity) + '.');
+					console.log('New quantity for Item ID ' + item + ' has been updated to ' + (productData.stock_quantity + addQuantity) + '.');
 					console.log("\n---------------------------------------------------------------------\n");
 
 					// End the database connection
