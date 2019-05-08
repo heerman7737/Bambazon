@@ -84,7 +84,7 @@ function displayLowInventory() {
 			strOut += 'Department: ' + data[i].department_name + '  //  '
 			strOut += 'Price: $' + data[i].price + '//'
             strOut += 'Quantity in stock' + data[i].stock_quantity + '\n'
-            console.log(strOut);
+            console.log(strOut)
             }
 		}
 
@@ -111,7 +111,7 @@ function displayLowInventory() {
 			strOut += 'Department: ' + data[i].department_name + '  //  '
 			strOut += 'Price: $' + data[i].price + '//'
             strOut += 'Quantity in stock' + data[i].stock_quantity + '\n'
-            console.log(strOut);
+            console.log(strOut)
             }
 		}
 
