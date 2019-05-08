@@ -31,8 +31,8 @@ function promptUserPurchase() {
 		let quantity = input.quantity;
 		let selection = 'SELECT * FROM products WHERE ?';
 
-		db.query(selection, {item_id: item}, function(err, data) {
-			if (err) throw err;
+		db.query(selection, {item_id: item}, function(e, data) {
+			if (e) throw e;
 			// Check valid id
 			if (data.length === 0) {
 				console.log('Invalid Item ID');
@@ -45,8 +45,8 @@ function promptUserPurchase() {
 					console.log('Successful in placing order!');
 					let updateselection = 'UPDATE products SET stock_quantity = ' + (productData.stock_quantity - quantity) + ' WHERE item_id = ' + item;					
 					// Update the inventory
-					db.query(updateselection, function(err, data) {
-						if (err) throw err;
+					db.query(updateselection, function(e, data) {
+						if (e) throw e;
 
 						console.log('Your oder has been placed! Your total is $' + productData.price * quantity);
 						console.log('Thank you for shopping with us!');
@@ -70,8 +70,8 @@ function promptUserPurchase() {
 function displayInventory() {
 	// Construct the db query string
 	selection = 'SELECT * FROM products';
-	db.query(selection, function(err, data) {
-		if (err) throw err;
+	db.query(selection, function(e, data) {
+		if (e) throw e;
 
 		console.log('Inventory: ');
 		console.log('...................\n');

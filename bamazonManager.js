@@ -44,8 +44,8 @@ function promptManager() {
 function displayInventory() {
 	// Construct the db query string
 	selection = 'SELECT * FROM products';
-	db.query(selection, function(err, data) {
-		if (err) throw err;
+	db.query(selection, function(e, data) {
+		if (e) throw e;
 
 		console.log('Inventory: ');
 		console.log('...................\n');
@@ -69,8 +69,8 @@ function displayInventory() {
 function displayLowInventory() {
 	// Construct the db query string
 	selection = 'SELECT * FROM products';
-	db.query(selection, function(err, data) {
-		if (err) throw err;
+	db.query(selection, function(e, data) {
+		if (e) throw e;
 
 		console.log('Inventory: ');
 		console.log('...................\n');
@@ -96,8 +96,8 @@ function displayLowInventory() {
 function displayLowInventory() {
 	// Construct the db query string
 	selection = 'SELECT * FROM products';
-	db.query(selection, function(err, data) {
-		if (err) throw err;
+	db.query(selection, function(e, data) {
+		if (e) throw e;
 
 		console.log('Inventory: ');
 		console.log('...................\n');
@@ -138,8 +138,8 @@ function addInventory() {
 		let addQuantity = input.quantity;
 		let queryStr = 'SELECT * FROM products WHERE ?';
 
-		db.query(queryStr, {item_id: item}, function(err, data) {
-			if (err) throw err;
+		db.query(queryStr, {item_id: item}, function(e, data) {
+			if (e) throw e;
 			if (data.length === 0) {
 				console.log('Invalid Item ID');
 				addInventory();
@@ -148,8 +148,8 @@ function addInventory() {
 				console.log('Updating Inventory...');
 				let updateQueryStr = 'UPDATE products SET stock_quantity = ' + (productData.stock_quantity + addQuantity) + ' WHERE item_id = ' + item;
 				// Update the inventory
-				db.query(updateQueryStr, function(err, data) {
-					if (err) throw err;
+				db.query(updateQueryStr, function(e, data) {
+					if (e) throw e;
 
 					console.log('New quantity for Item ID ' + item + ' has been updated to ' + (productData.stock_quantity + addQuantity) + '.');
 					console.log("\n---------------------------------------------------------------------\n");
@@ -194,8 +194,8 @@ function addProduct() {
 		let queryStr = 'INSERT INTO products SET ?';
 
 		// Add new product to the db
-		db.query(queryStr, input, function (error, results) {
-			if (error) throw error;
+		db.query(queryStr, input, function (eor, results) {
+			if (eor) throw eor;
 
 			console.log('New product has been added to the inventory under Item ID ' + results.insertId + '.');
             console.log("\n---------------------------------------------------------------------\n")
