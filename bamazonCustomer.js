@@ -32,10 +32,10 @@ function promptUserPurchase() {
 		let selection = 'SELECT * FROM products WHERE ?';
 
 		db.query(selection, {item_id: item}, function(e, data) {
-			if (e) throw e;
+			if (e) throw e
 			// Check valid id
 			if (data.length === 0) {
-				console.log('Invalid Item ID');
+				console.log('Invalid Item ID')
 				displayInventory();
 
 			} else {
@@ -43,14 +43,14 @@ function promptUserPurchase() {
 				// Check quantity
 				if (quantity <= productData.stock_quantity) {
 					console.log('Successful in placing order!');
-					let updateselection = 'UPDATE products SET stock_quantity = ' + (productData.stock_quantity - quantity) + ' WHERE item_id = ' + item;					
+					let updateselection = 'UPDATE products SET stock_quantity = ' + (productData.stock_quantity - quantity) + ' WHERE item_id = ' + item					
 					// Update the inventory
 					db.query(updateselection, function(e, data) {
-						if (e) throw e;
+						if (e) throw e
 
-						console.log('Your oder has been placed! Your total is $' + productData.price * quantity);
+						console.log('Your oder has been placed! Your total is $' + productData.price * quantity)
 						console.log('Thank you for shopping with us!');
-						console.log("\n---------------------------------------------------------------------\n");
+						console.log("\n---------------------------------------------------------------------\n")
 						// console.log(productData.stock_quantity)
 						// End the database connection
 						process.exit();
@@ -59,7 +59,7 @@ function promptUserPurchase() {
 					displayInventory()
 					console.log('Insufficient quantity!');
 					console.log('Please modify your order.');
-					console.log("\n---------------------------------------------------------------------\n");
+					console.log("\n---------------------------------------------------------------------\n")
 				}
 			}
 		})
@@ -71,23 +71,23 @@ function displayInventory() {
 	// Construct the db query string
 	selection = 'SELECT * FROM products';
 	db.query(selection, function(e, data) {
-		if (e) throw e;
+		if (e) throw e
 
 		console.log('Inventory: ');
 		console.log('...................\n');
 
 		
 		for (let i = 0; i < data.length; i++) {
-			let strOut = '';
-			strOut += 'Item ID: ' + data[i].item_id + '  //  ';
-			strOut += 'Product Name: ' + data[i].product_name + '  //  ';
-			strOut += 'Department: ' + data[i].department_name + '  //  ';
-			strOut += 'Price: $' + data[i].price + '\n';
+			let strOut = ''
+			strOut += 'Item ID: ' + data[i].item_id + '  //  '
+			strOut += 'Product Name: ' + data[i].product_name + '  //  '
+			strOut += 'Department: ' + data[i].department_name + '  //  '
+			strOut += 'Price: $' + data[i].price + '\n'
 
-			console.log(strOut);
+			console.log(strOut)
 		}
 
-	  	console.log("---------------------------------------------------------------------\n");
+	  	console.log("---------------------------------------------------------------------\n")
 
 	  	//Prompt the user
 	  	promptUserPurchase();
