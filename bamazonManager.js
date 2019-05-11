@@ -136,9 +136,9 @@ function addInventory() {
 	]).then(function(input) {
 		let item = input.item_id;
 		let addQuantity = input.quantity;
-		let queryStr = 'SELECT * FROM products WHERE ?';
+		let str = 'SELECT * FROM products WHERE ?';
 
-		db.query(queryStr, {item_id: item}, function(e, data) {
+		db.query(str, {item_id: item}, function(e, data) {
 			if (e) throw e;
 			if (data.length === 0) {
 				console.log('Invalid Item ID');
@@ -146,9 +146,9 @@ function addInventory() {
 			} else {
 				let productData = data[0];
 				console.log('Updating Inventory...');
-				let updateQueryStr = 'UPDATE products SET stock_quantity = ' + (productData.stock_quantity + addQuantity) + ' WHERE item_id = ' + item;
+				let updatedb = 'UPDATE products SET stock_quantity = ' + (productData.stock_quantity + addQuantity) + ' WHERE item_id = ' + item;
 				// Update the inventory
-				db.query(updateQueryStr, function(e, data) {
+				db.query(updatedb, function(e, data) {
 					if (e) throw e;
 
 					console.log('New quantity for Item ID ' + item + ' has been updated to ' + (productData.stock_quantity + addQuantity) + '.');
@@ -191,11 +191,11 @@ function addProduct() {
 									   '    department_name = ' + input.department_name + '\n' +  
 									   '    price = ' + input.price + '\n' +  
 									   '    stock_quantity = ' + input.stock_quantity);
-		let queryStr = 'INSERT INTO products SET ?';
+		let str = 'INSERT INTO products SET ?';
 
 		// Add new product to the db
-		db.query(queryStr, input, function (eor, results) {
-			if (eor) throw eor;
+		db.query(str, input, function (e, results) {
+			if (e) throw e;
 
 			console.log('New product has been added to the inventory under Item ID ' + results.insertId + '.');
             console.log("\n---------------------------------------------------------------------\n")

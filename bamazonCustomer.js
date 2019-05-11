@@ -9,7 +9,7 @@ const db = mysql.createConnection({
 
 
 //Prompt the user
-function promptUserPurchase() {
+function promptUser() {
 
 	// Prompt the user to select an item
 	inquirer.prompt([
@@ -89,7 +89,7 @@ function displayInventory() {
 	  	console.log("---------------------------------------------------------------------\n")
 
 	  	//Prompt the user
-	  	promptUserPurchase();
+	  	promptUser();
 	})
 }
 
