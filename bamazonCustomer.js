@@ -49,7 +49,6 @@ function promptUserPurchase() {
 						if (e) throw e
 
 						console.log('Your oder has been placed! Your total is $' + productData.price * quantity)
-						console.log('Thank you for shopping with us!');
 						console.log("\n---------------------------------------------------------------------\n")
 						// console.log(productData.stock_quantity)
 						// End the database connection
@@ -57,8 +56,8 @@ function promptUserPurchase() {
 					})
 				} else {
 					displayInventory()
-					console.log('Insufficient quantity!');
-					console.log('Please modify your order.');
+					console.log('Insufficient quantity!')
+					console.log('Please modify your order.')
 					console.log("\n---------------------------------------------------------------------\n")
 				}
 			}
@@ -78,13 +77,13 @@ function displayInventory() {
 
 		
 		for (let i = 0; i < data.length; i++) {
-			let strOut = ''
-			strOut += 'Item ID: ' + data[i].item_id + '  //  '
-			strOut += 'Product Name: ' + data[i].product_name + '  //  '
-			strOut += 'Department: ' + data[i].department_name + '  //  '
-			strOut += 'Price: $' + data[i].price + '\n'
+			let result = ''
+			result += 'Item ID: ' + data[i].item_id + '  //  '
+			result += 'Product Name: ' + data[i].product_name + '  //  '
+			result += 'Department: ' + data[i].department_name + '  //  '
+			result += 'Price: $' + data[i].price + '\n'
 
-			console.log(strOut)
+			console.log(result)
 		}
 
 	  	console.log("---------------------------------------------------------------------\n")

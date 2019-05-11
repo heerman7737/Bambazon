@@ -52,13 +52,13 @@ function displayInventory() {
 
 		
 		for (let i = 0; i < data.length; i++) {
-			let strOut = '';
-			strOut += 'Item ID: ' + data[i].item_id + '  //  '
-			strOut += 'Product Name: ' + data[i].product_name + '  //  '
-			strOut += 'Department: ' + data[i].department_name + '  //  '
-			strOut += 'Price: $' + data[i].price + '//'
-            strOut += 'Quantity in stock' + data[i].stock_quantity + '\n'
-			console.log(strOut);
+			let result = '';
+			result += 'Item ID: ' + data[i].item_id + '  //  '
+			result += 'Product Name: ' + data[i].product_name + '  //  '
+			result += 'Department: ' + data[i].department_name + '  //  '
+			result += 'Price: $' + data[i].price + '//'
+            result += 'Quantity in stock' + data[i].stock_quantity + '\n'
+			console.log(result);
 		}
 
           console.log("---------------------------------------------------------------------\n")
@@ -78,13 +78,13 @@ function displayLowInventory() {
 		
 		for (let i = 0; i < data.length; i++) {
             if(data[i].stock_quantity <=5){
-			let strOut = '';
-			strOut += 'Item ID: ' + data[i].item_id + '  //  '
-			strOut += 'Product Name: ' + data[i].product_name + '  //  '
-			strOut += 'Department: ' + data[i].department_name + '  //  '
-			strOut += 'Price: $' + data[i].price + '//'
-            strOut += 'Quantity in stock' + data[i].stock_quantity + '\n'
-            console.log(strOut)
+			let result = '';
+			result += 'Item ID: ' + data[i].item_id + '  //  '
+			result += 'Product Name: ' + data[i].product_name + '  //  '
+			result += 'Department: ' + data[i].department_name + '  //  '
+			result += 'Price: $' + data[i].price + '//'
+            result += 'Quantity in stock' + data[i].stock_quantity + '\n'
+            console.log(result)
             }
 		}
 
@@ -105,13 +105,13 @@ function displayLowInventory() {
 		
 		for (let i = 0; i < data.length; i++) {
             if(data[i].stock_quantity <=5){
-			let strOut = '';
-			strOut += 'Item ID: ' + data[i].item_id + '  //  '
-			strOut += 'Product Name: ' + data[i].product_name + '  //  '
-			strOut += 'Department: ' + data[i].department_name + '  //  '
-			strOut += 'Price: $' + data[i].price + '//'
-            strOut += 'Quantity in stock' + data[i].stock_quantity + '\n'
-            console.log(strOut)
+			let result = '';
+			result += 'Item ID: ' + data[i].item_id + '  //  '
+			result += 'Product Name: ' + data[i].product_name + '  //  '
+			result += 'Department: ' + data[i].department_name + '  //  '
+			result += 'Price: $' + data[i].price + '//'
+            result += 'Quantity in stock' + data[i].stock_quantity + '\n'
+            console.log(result)
             }
 		}
 
