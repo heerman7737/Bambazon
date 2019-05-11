@@ -48,7 +48,7 @@ function promptUser() {
 					db.query(updateselection, function(e, data) {
 						if (e) throw e
 
-						console.log('Your oder has been placed! Your total is $' + productData.price * quantity)
+						console.log('Order Successful, total is $' + productData.price * quantity)
 						console.log("\n---------------------------------------------------------------------\n")
 						// console.log(productData.stock_quantity)
 						// End the database connection
@@ -57,7 +57,6 @@ function promptUser() {
 				} else {
 					displayInventory()
 					console.log('Insufficient quantity!')
-					console.log('Please modify your order.')
 					console.log("\n---------------------------------------------------------------------\n")
 				}
 			}
